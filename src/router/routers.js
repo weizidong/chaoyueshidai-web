@@ -6,6 +6,11 @@ export default [
     redirect: `${ROOT}/home`,
   },
   // 后台登录
+  {
+    path: `/login`,
+    redirect: `${ROOT}/manage/home`,
+  },
+  // 后台登录
   {path: `${ROOT}/login`, component: require('../view/login/Login.vue'), name: 'login', meta: {title: '管理后台登录'}},
   // 主页网站
   {

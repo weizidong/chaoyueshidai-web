@@ -4,13 +4,15 @@
 
 <template>
   <div class="manage">
-    <div>管理后台</div>
+    <Header/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+  import Header from '../components/Header.vue'
   export default {
     name: 'manage',
+    components: {Header},
   }
 </script>
