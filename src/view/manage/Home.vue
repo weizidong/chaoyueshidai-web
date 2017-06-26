@@ -3,13 +3,20 @@
 </style>
 
 <template>
-  <div class="home">
-    页面内容
+  <div class="manage">
+    <MyHeader/>
+    <Sidebar/>
+    <div class="content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+  import MyHeader from '../../components/Header.vue'
+  import Sidebar from '../../components/Sidebar.vue'
   export default {
-    name: 'home',
+    name: 'manage',
+    components: {MyHeader, Sidebar},
   }
 </script>

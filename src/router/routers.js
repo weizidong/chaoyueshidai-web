@@ -8,10 +8,8 @@ export default [
   // 后台登录
   {
     path: `/login`,
-    redirect: `${ROOT}/manage/home`,
+    redirect: `${ROOT}/manage/login`,
   },
-  // 后台登录
-  {path: `${ROOT}/login`, component: require('../view/login/Login.vue'), name: 'login', meta: {title: '管理后台登录'}},
   // 主页网站
   {
     path: `${ROOT}`,
@@ -23,9 +21,11 @@ export default [
   // 管理后台
   {
     path: `${ROOT}/manage`,
-    component: require('../view/Manage.vue'),
+    component: require('../view/manage/Home.vue'),
+    meta: {title: '管理后台'},
     children: [
-      {path: `${ROOT}/manage/home`, component: require('../view/manage/Home.vue'), name: 'manage', meta: {title: '管理后台'}},
+      {path: `${ROOT}/manage/login`, component: require('../view/manage/login/Login.vue'), name: 'login', meta: {title: '登录'}},
+      {path: `${ROOT}/manage/config`, component: require('../view/manage/config/ConfigEdit.vue'), name: 'configEdit', meta: {title: '设置'}},
     ],
   },
 ]

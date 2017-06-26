@@ -1,6 +1,6 @@
 import {ROOT, MANAGE} from '../constant'
 export default [
-  {title: '首页', path: `${ROOT}${MANAGE}/home`, icon: 'date'},
+  {title: '首页', path: `${ROOT}${MANAGE}`, icon: 'date'},
   {
     title: '项目案例管理',
     icon: 'example',
@@ -11,4 +11,5 @@ export default [
       {title: '已交付项目', path: `${ROOT}${MANAGE}/example/4`},
     ],
   },
+  {title: '设置', path: `${ROOT}${MANAGE}/config`, icon: 'date'},
 ]

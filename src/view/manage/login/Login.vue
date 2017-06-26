@@ -1,15 +1,15 @@
 <style lang="less" scoped>
-  @import "main.less";
+  @import "login.less";
 </style>
 
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div class="config_edit">
+    我的设置
   </div>
 </template>
 
 <script>
   export default {
-    name: 'app',
+    name: 'configEdit',
   }
 </script>
