@@ -4,15 +4,17 @@
 
 <template>
   <div class="manage">
-    <Header/>
+    <MyHeader/>
+    <Sidebar/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Header from '../components/Header.vue'
+  import MyHeader from '../components/Header.vue'
+  import Sidebar from '../components/Sidebar.vue'
   export default {
     name: 'manage',
-    components: {Header},
+    components: {MyHeader, Sidebar},
   }
 </script>

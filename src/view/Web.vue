@@ -4,14 +4,17 @@
 
 <template>
   <div class="web">
-    <div>页头</div>
+    <MyMenu/>
     <router-view></router-view>
-    <div>页脚</div>
+    <MyFooter/>
   </div>
 </template>
 
 <script>
+  import MyMenu from '../components/MyMenu.vue'
+  import MyFooter from '../components/Footer.vue'
   export default {
     name: 'web',
+    components: {MyMenu, MyFooter},
   }
 </script>
