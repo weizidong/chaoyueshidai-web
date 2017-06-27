@@ -2,11 +2,11 @@
   @import "sidebar.less";
 </style>
 <template>
-  <div class="sidebar">
-    <el-menu :default-active="active" v-show="!hide" theme="dark" unique-opened router>
-      <SidebarItem :index="idx+''" :item="item" v-for="(item,idx) in menu" :key="idx"/>
+  <div class="sidebar" :class="{hidden:hide}">
+    <el-menu :default-active="active" theme="dark" unique-opened router @open="hide = false" @close="hide = true">
+      <SidebarItem :index="idx+''" :hide="hide" :item="item" v-for="(item,idx) in menu" :key="idx"/>
     </el-menu>
-    <div class="hide"><i class="el-icon-d-arrow-left"></i></div>
+    <!--<div class="hide" @click="hide = !hide"><i :class="{'el-icon-d-arrow-left':!hide,'el-icon-d-arrow-right':hide}"></i></div>-->
   </div>
 </template>
 <script type="es6">
