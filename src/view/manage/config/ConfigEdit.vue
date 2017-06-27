@@ -16,22 +16,14 @@
         </el-row>
         <transition-group name="list-complete" tag="p" class="list">
           <div v-for="(example,i) in data.example" :key="example" class="list-complete-item">
-            <el-form-item label="类型名称：" style="width: 40%;text-align: center">
+            <el-form-item :label="(i+1)+'、类型名称：'" style="width: 40%;text-align: center">
               <el-input v-model="example.name"></el-input>
             </el-form-item>
             <el-form-item label="是否显示：" style="width: 20%;text-align: center">
               <el-switch on-text="" off-text="" v-model="example.show"></el-switch>
             </el-form-item>
             <el-form-item label="显示图标：" style="width: 30%;text-align: center">
-              <!--<el-upload-->
-              <!--class="avatar-uploader"-->
-              <!--action="https://jsonplaceholder.typicode.com/posts/"-->
-              <!--:show-file-list="false"-->
-              <!--:on-success="handleAvatarSuccess"-->
-              <!--:before-upload="beforeAvatarUpload">-->
-              <!--<img v-if="imageUrl" :src="imageUrl" class="avatar">-->
-              <!--<i v-else class="el-icon-plus avatar-uploader-icon"></i>-->
-              <!--</el-upload>-->
+              <Avatar width="32" height="32"/>
             </el-form-item>
             <el-form-item style="width: 5%;text-align: center">
               <i class="el-icon-delete2 delete" @click="$delete(data.example,i)"></i>
@@ -54,6 +46,7 @@
 
 <script>
   import {getConfig} from '../../../api/configApi'
+  import Avatar from '../../../components/Avatar.vue'
   export default {
     name: 'configEdit',
     data () {
@@ -62,6 +55,7 @@
         data: {example: []},
       }
     },
+    components: {Avatar},
     methods: {
       tabClick ({name}) {
         this.$router.push({query: {tab: name}})
