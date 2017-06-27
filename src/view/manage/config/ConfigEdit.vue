@@ -5,16 +5,16 @@
 <template>
   <el-tabs v-model="activeName" class="config_edit" type="card" @tab-click="tabClick">
     <el-tab-pane label="网站菜单设置" name="1">
-      开发中。。。
+      网站菜单设置开发中。。。
     </el-tab-pane>
     <el-tab-pane label="功能模块设置" name="2">
-      开发中。。。
+      功能模块设置开发中。。。
     </el-tab-pane>
     <el-tab-pane label="微信关注设置" name="3">
-      开发中。。。
+      微信关注设置开发中。。。
     </el-tab-pane>
     <el-tab-pane label="联系方式设置" name="4">
-      开发中。。。
+      联系方式设置开发中。。。
     </el-tab-pane>
   </el-tabs>
 </template>
