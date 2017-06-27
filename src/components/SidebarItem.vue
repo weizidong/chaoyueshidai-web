@@ -7,7 +7,7 @@
       <i :class="'el-icon-'+item.icon"></i><span>{{item.title}}</span>
     </el-menu-item>
     <el-submenu :index="index" v-if="item.children">
-      <template slot="title"><i class="iconfont" :class="'icon-'+(item.icon||'menu')"></i><span>{{item.title}}</span></template>
+      <template slot="title"><i class="icon-font" :class="'el-icon-'+(item.icon||'menu')"></i><span>{{item.title}}</span></template>
       <SidebarItem v-for="(i,idx) in item.children" :key="index+'-'+idx" :index="index+'-'+idx" :item="i"/>
     </el-submenu>
   </div>

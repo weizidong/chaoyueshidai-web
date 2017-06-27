@@ -2,9 +2,12 @@
   @import "sidebar.less";
 </style>
 <template>
-  <el-menu :default-active="active" class="sidebar" theme="dark" unique-opened router>
-    <SidebarItem :index="idx+''" :item="item" v-for="(item,idx) in menu" :key="idx"/>
-  </el-menu>
+  <div class="sidebar">
+    <el-menu :default-active="active" v-show="!hide" theme="dark" unique-opened router>
+      <SidebarItem :index="idx+''" :item="item" v-for="(item,idx) in menu" :key="idx"/>
+    </el-menu>
+    <div class="hide"><i class="el-icon-d-arrow-left"></i></div>
+  </div>
 </template>
 <script type="es6">
   import menu from '../router/menu'
@@ -13,7 +16,8 @@
     components: {SidebarItem},
     data(){
       return {
-        menu
+        menu,
+        hide: false
       }
     },
     computed: {
