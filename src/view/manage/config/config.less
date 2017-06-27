@@ -1,2 +1,39 @@
 .config_edit {
+  .form {
+    padding: 2em;
+    text-align: left;
+    .delete, .add {
+      cursor: pointer;
+      transition: all .5s ease;
+    }
+    .add:hover {
+      color: #5367ff;
+      font-size: 1.5em;
+    }
+    .delete:hover {
+      color: #ff484b;
+      font-size: 1.5em;
+    }
+    & > .el-row:first-child {
+      text-align: right;
+    }
+    .list {
+      position: relative;
+      .list-complete-item {
+        transition: all 1s;
+        .el-form-item {
+          margin-right: 0;
+        }
+      }
+      .list-complete-enter, .list-complete-leave-active {
+        opacity: 0;
+        transform: translateX(150px);
+      }
+      .list-complete-leave-active {
+        transform: translateY(-40px);
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
 }

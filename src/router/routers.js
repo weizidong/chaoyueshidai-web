@@ -26,6 +26,10 @@ export default [
     children: [
       {path: `${ROOT}/manage/login`, component: require('../view/manage/login/Login.vue'), name: 'login', meta: {title: '登录'}},
       {path: `${ROOT}/manage/config`, component: require('../view/manage/config/ConfigEdit.vue'), name: 'configEdit', meta: {title: '设置'}},
+      {path: `${ROOT}/manage/example`, component: require('../view/manage/example/ExampleList.vue'), name: 'exampleList', meta: {title: '项目案例'}},
+      {path: `${ROOT}/manage/example/:id`, component: require('../view/manage/example/ExampleEdit.vue'), name: 'exampleEdit', meta: {title: '修改项目案例'}},
+      {path: `${ROOT}/manage/note`, component: require('../view/manage/note/NoteList.vue'), name: 'noteList', meta: {title: '笔记'}},
+      {path: `${ROOT}/manage/note/:id`, component: require('../view/manage/note/NoteEdit.vue'), name: 'noteEdit', meta: {title: '修改笔记'}},
     ],
   },
 ]
