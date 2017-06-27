@@ -13,7 +13,7 @@ export default [
   // 主页网站
   {
     path: `${ROOT}`,
-    component: require('../view/Web.vue'),
+    component: require('../view/web/Web.vue'),
     children: [
       {path: `${ROOT}/home`, component: require('../view/web/Home.vue'), name: 'home', meta: {title: '首页'}},
     ],

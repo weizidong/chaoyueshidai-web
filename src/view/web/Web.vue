@@ -5,14 +5,16 @@
 <template>
   <div class="web">
     <MyMenu/>
-    <router-view></router-view>
+    <div class="content">
+      <router-view></router-view>
+    </div>
     <MyFooter/>
   </div>
 </template>
 
 <script>
-  import MyMenu from '../components/MyMenu.vue'
-  import MyFooter from '../components/Footer.vue'
+  import MyMenu from '../../components/MyMenu.vue'
+  import MyFooter from '../../components/Footer.vue'
   export default {
     name: 'web',
     components: {MyMenu, MyFooter},
