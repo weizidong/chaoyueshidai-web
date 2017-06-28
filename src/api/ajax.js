@@ -16,14 +16,18 @@ Axios.interceptors.request.use((config) => {
 
 // 添加一个返回拦截器
 Axios.interceptors.response.use((response) => {
+  console.log(response)
   if (response.status !== 200) {
     return {code: response.status, msg: '网络异常，请稍后重试...'}
   }
-  const {code, msg, data} = JSON.parse(response.data || '{}')
-  if (code !== 200) {
+  const {code, msg, data} = response.data
+  if (!code) {
+    return response.data
+  } else if (code === 200) {
+    return data
+  } else if (code !== 200) {
     return {code: code || 500, msg: msg || '服务器异常！请稍后重试...'}
   }
-  return data
 }, (error) => {
   console.log(error)
   // 对返回的错误进行一些处理

@@ -35,7 +35,8 @@
 </template>
 
 <script type="es6">
-  import {upload} from '../api/fileApi'
+  import {upload, delFile} from '../api/fileApi'
+  import {warning} from '../actions'
   export default {
     data(){
       return {
@@ -55,13 +56,11 @@
         type: String,
         default: '240'
       },
-      filed: {
-        type: String,
-        default: 'picUrl'
+      size: {
+        type: Number,
+        default: 1024 * 1024
       },
-      success: {
-        type: Function,
-      }
+      success: Function
     },
     watch: {
       url(val){
@@ -71,13 +70,13 @@
     methods: {
       upload,
       successFun ({url}) {
-        this.delPic(this.pic);
+        this.pic && delFile(this.pic)
         this.pic = url
-        this.success ? this.success(url) : this.setData({[this.filed]: url});
+        this.success && this.success(url)
       },
       beforeUpload(file){
-        if (this.type !== 'text' && file.size >= 1024 * 1024) {
-          warning('图片大小不能超过1M！请修改后重新上传！');
+        if (this.type !== 'text' && file.size >= this.size) {
+          warning(`图片大小不能超过 ${this.size / 1024 / 1024} M！请修改后重新上传！`);
           return false;
         }
         return true;
