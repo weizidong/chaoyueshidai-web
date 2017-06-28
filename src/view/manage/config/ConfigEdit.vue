@@ -101,7 +101,7 @@
     },
     created () {
       const {query: {tab}} = this.$route
-      this.activeName = tab || '1'
+      this.activeName = tab || 'example'
       getConfig().then(({value} = {}) => {
         this.data = value && {...this.data, ...JSON.parse(value)}
       })

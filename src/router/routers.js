@@ -6,10 +6,7 @@ export default [
     redirect: `${ROOT}/home`,
   },
   // 后台登录
-  {
-    path: `/login`,
-    redirect: `${ROOT}/manage/login`,
-  },
+  {path: `${ROOT}/login`, component: require('../view/manage/login/Login.vue'), name: 'login', meta: {title: '登录'}},
   // 主页网站
   {
     path: `${ROOT}`,
@@ -24,7 +21,6 @@ export default [
     component: require('../view/manage/Home.vue'),
     meta: {title: '管理后台'},
     children: [
-      {path: `${ROOT}/manage/login`, component: require('../view/manage/login/Login.vue'), name: 'login', meta: {title: '登录'}},
       {path: `${ROOT}/manage/config`, component: require('../view/manage/config/ConfigEdit.vue'), name: 'configEdit', meta: {title: '设置'}},
       {path: `${ROOT}/manage/example/:type`, component: require('../view/manage/example/ExampleList.vue'), name: 'exampleList', meta: {title: '项目案例'}},
       {path: `${ROOT}/manage/example/:type/:id`, component: require('../view/manage/example/ExampleEdit.vue'), name: 'exampleEdit', meta: {title: '修改项目案例'}},
