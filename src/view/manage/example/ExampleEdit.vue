@@ -10,14 +10,14 @@
       <el-form-item label="案例主题：" prop="topic">
         <el-input v-model="example.topic"/>
       </el-form-item>
-      <el-form-item label="发布网址：" prop="url">
+      <el-form-item label="案例网址：" prop="url">
         <el-input v-model="example.url"/>
       </el-form-item>
       <el-form-item label="案例配图：" prop="pic">
-        <el-input v-model="example.pic"/>
+        <Avatar />
       </el-form-item>
       <el-form-item label="案例说明：" prop="legend">
-        <el-input v-model="example.legend"/>
+        <el-input type="textarea" v-model="example.legend" :rows="10"/>
       </el-form-item>
       <el-button type="primary" @click="submit">{{$route.params.id === 'create'?'新增':'保存'}}</el-button>
     </el-form>
@@ -27,6 +27,7 @@
 <script>
   import {getExample, addExample, updateExample} from '../../../api/exampleApi'
   import {success, error} from '../../../actions'
+  import Avatar from '../../../components/Avatar.vue'
   export default {
     name: 'exampleEdit',
     data () {
@@ -35,6 +36,7 @@
         rules: {},
       }
     },
+    components: {Avatar},
     methods: {
       submit () {
         this.$refs.example.validate((valid) => {

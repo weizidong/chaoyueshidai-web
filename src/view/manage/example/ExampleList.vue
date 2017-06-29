@@ -6,8 +6,8 @@
     </el-breadcrumb>
     <el-button type="info" icon="plus" @click="$router.push({name: 'exampleEdit', params: {id: 'create'}})">新增</el-button>
     <el-table :data="data.list" style="width: 100%">
-      <el-table-column prop="topic" label="项目名称" min-width="180"/>
-      <el-table-column prop="url" label="官方网址" min-width="180"/>
+      <el-table-column prop="topic" label="案例名称" min-width="180"/>
+      <el-table-column prop="url" label="案例网址" min-width="180"/>
       <el-table-column prop="created" :formatter="({created})=>dateFilter(created)" label="创建时间"/>
       <el-table-column label="操作" width="100">
         <template scope="scope">
@@ -55,7 +55,6 @@
       },
     },
     beforeRouteUpdate (to, from, next) {
-      console.log(to)
       next()
       this.data = {page: 1, pageSize: 10, list: [], all: 0}
       if (!to.query.page) {
