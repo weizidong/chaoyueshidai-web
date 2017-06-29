@@ -1,5 +1,5 @@
-<style lang="less" scoped>
-  @import "home.less";
+<style lang="less">
+  @import "manage.less";
 </style>
 
 <template>
@@ -7,7 +7,9 @@
     <MyHeader/>
     <Sidebar/>
     <div class="content">
-      <router-view></router-view>
+      <transition name="manage-data" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>

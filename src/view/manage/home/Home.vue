@@ -1,15 +1,15 @@
 <style lang="less" scoped>
-  @import "login.less";
+  @import "home.less";
 </style>
 
 <template>
-  <div class="login">
-    登录界面开发中。。。
+  <div class="home">
+    欢迎首页开发中。。。
   </div>
 </template>
 
 <script>
   export default {
-    name: 'login',
+    name: 'home',
   }
 </script>

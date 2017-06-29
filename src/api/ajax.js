@@ -16,10 +16,11 @@ Axios.interceptors.request.use((config) => {
 
 // 添加一个返回拦截器
 Axios.interceptors.response.use((response) => {
-  console.log(response)
   if (response.status !== 200) {
+    console.log(response)
     return {code: response.status, msg: '网络异常，请稍后重试...'}
   }
+  console.log(response.data)
   const {code, msg, data} = response.data
   if (!code) {
     return response.data

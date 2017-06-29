@@ -1,41 +1,30 @@
-<style lang="less" scoped>
-  @import "example.less";
-</style>
-
 <template>
-  <div class="example_list">
+  <div class="content_data">
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/view/manage/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>项目案例</el-breadcrumb-item>
-      <el-breadcrumb-item>{{active && active.name}}</el-breadcrumb-item>
+      <el-breadcrumb-item>{{active && active.name}}项目</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-table
-      :data="data.list"
-      style="width: 100%">
-      <el-table-column
-        prop="date"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址">
+    <el-button type="info" icon="plus" @click="$router.push({name: 'exampleEdit', params: {id: 'create'}})">新增</el-button>
+    <el-table :data="data.list" style="width: 100%">
+      <el-table-column prop="topic" label="项目名称" min-width="180"/>
+      <el-table-column prop="url" label="官方网址" min-width="180"/>
+      <el-table-column prop="created" :formatter="({created})=>dateFilter(created)" label="创建时间"/>
+      <el-table-column label="操作" width="100">
+        <template scope="scope">
+          <el-button type="text" size="small" @click="$router.push({name: 'exampleEdit', params: {id:scope.row.id}})">编辑</el-button>
+          <el-button type="text" size="small" @click="del(scope.row)">删除</el-button>
+        </template>
       </el-table-column>
     </el-table>
-    <div>
-      <MyPagination :page="data.page" :size="data.pageSize" :all="data.all"/>
-    </div>
+    <MyPagination :page="data.page" :size="data.pageSize" :method="findList" :all="data.all"/>
   </div>
 </template>
 
 <script>
   import {getConfig} from '../../../api/configApi'
-  import {findExample} from '../../../api/exampleApi'
+  import {findExample, delExample} from '../../../api/exampleApi'
+  import {dateFilter} from '../../../constant/filter'
+  import {success, error, confirm} from '../../../actions'
   import MyPagination from '../../../components/MyPagination.vue'
   export default {
     name: 'exampleList',
@@ -52,16 +41,30 @@
       },
     },
     methods: {
+      dateFilter,
       findList (page = {}) {
         findExample(this.$route.params.type, {...this.data, ...page}).then((data) => {
           this.data = data
         })
       },
+      del ({id, topic}) {
+        confirm(`确认删除项目案例"${topic}"?`, 'warning', '删除确认').then(() => delExample(id).then(() => {
+          success(`删除项目案例"${topic}"成功！`)
+          this.findList()
+        }).catch(() => error(`删除项目案例"${topic}"失败！`))).catch((e) => e)
+      },
+    },
+    beforeRouteUpdate (to, from, next) {
+      console.log(to)
+      next()
+      this.data = {page: 1, pageSize: 10, list: [], all: 0}
+      if (!to.query.page) {
+        this.findList()
+      }
     },
     created () {
       getConfig().then(({value}) => {
         this.config = value && JSON.parse(value)
-        this.findList()
       })
     },
   }

@@ -1,0 +1,50 @@
+.manage {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .hidden + .content {
+    left: 75px;
+  }
+  .content {
+    transition: all .3s ease;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 165px;
+    right: 0;
+    overflow-y: scroll;
+    padding: 15px;
+    .manage-data-enter-active, .manage-data-leave {
+      transition: all .5s ease;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .manage-data-enter, .manage-data-leave-active {
+      transition: all .5s ease;
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    .manage-data-enter {
+      transform: translateX(50%);
+    }
+    .content_data {
+      position: relative;
+      .el-breadcrumb {
+        padding-bottom: 15px;
+      }
+      & > .el-button {
+        position: absolute;
+        right: 0;
+        top: -10px;
+      }
+      .el-table th {
+        text-align: center;
+      }
+      .el-pagination {
+        padding: 15px;
+      }
+    }
+  }
+}

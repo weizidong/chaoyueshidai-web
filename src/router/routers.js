@@ -18,9 +18,10 @@ export default [
   // 管理后台
   {
     path: `${ROOT}/manage`,
-    component: require('../view/manage/Home.vue'),
+    component: require('../view/manage/Manage.vue'),
     meta: {title: '管理后台'},
     children: [
+      {path: `${ROOT}/manage/home`, component: require('../view/manage/home/Home.vue'), name: 'manage', meta: {title: '后台管理'}},
       {path: `${ROOT}/manage/config`, component: require('../view/manage/config/ConfigEdit.vue'), name: 'configEdit', meta: {title: '设置'}},
       {path: `${ROOT}/manage/example/:type`, component: require('../view/manage/example/ExampleList.vue'), name: 'exampleList', meta: {title: '项目案例'}},
       {path: `${ROOT}/manage/example/:type/:id`, component: require('../view/manage/example/ExampleEdit.vue'), name: 'exampleEdit', meta: {title: '修改项目案例'}},

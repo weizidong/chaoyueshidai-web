@@ -29,10 +29,16 @@
     },
     methods: {
       handleSizeChange (pageSize) {
+        if (!pageSize) {
+          return
+        }
         this.$router.push({query: {...this.query, pageSize}});
         this.method && this.method({page: this.page, pageSize});
       },
       handleCurrentChange (page) {
+        if (!this.pageSize) {
+          return
+        }
         this.$router.push({query: {...this.query, page}});
         this.method && this.method({page, pageSize: this.pageSize});
       },

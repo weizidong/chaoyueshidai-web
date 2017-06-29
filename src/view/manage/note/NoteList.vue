@@ -1,15 +1,11 @@
-<style lang="less" scoped>
-  @import "note.less";
-</style>
-
 <template>
-  <div class="config_edit">
-    我的设置
+  <div class="content_data">
+    日子笔记开发中。。。
   </div>
 </template>
 
 <script>
   export default {
-    name: 'configEdit',
+    name: 'noteList',
   }
 </script>
