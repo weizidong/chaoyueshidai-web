@@ -43,7 +43,7 @@
     data () {
       return {
         config: {},
-        data: {page: 1, pageSize: 10, list: []},
+        data: {page: 1, pageSize: 10, list: [], all: 0},
       }
     },
     computed: {

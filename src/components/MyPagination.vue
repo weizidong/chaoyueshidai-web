@@ -38,7 +38,7 @@
       },
     },
     created () {
-      const {page = 1, pageSize = 10} = this.query;
+      const {page = 1, pageSize = 10} = this.$route.query;
       this.method && this.method({page, pageSize});
     },
   }
