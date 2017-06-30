@@ -6,7 +6,9 @@
   <div class="web">
     <MyMenu/>
     <div class="content">
-      <router-view></router-view>
+      <transition name="web-data" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
     <MyFooter/>
   </div>

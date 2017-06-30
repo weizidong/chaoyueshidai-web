@@ -1,6 +1,6 @@
 var path = require('path')
 module.exports = {
-  title: '超越时代',
+  title: '超越的力量',
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
