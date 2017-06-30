@@ -4,16 +4,24 @@
 
 <template>
   <div class="example">
-    <div class="title">{{active && active.name}}</div>
-    <transition-group name="example-complete" tag="div" class="example-complete-box">
-      <el-card :body-style="{ padding: '0px' }" v-for="(e,i) in data.list" :key="e" class="example-complete-item">
-        <img :src="'http://localhost:8000'+e.pic" class="image">
-        <div class="bottom">
-          <div>{{e.topic}}</div>
-          <time class="time">{{ dateFilter(e.created) }}</time>
-        </div>
-      </el-card>
-    </transition-group>
+    <transition name="title" mode="out-in">
+      <div class="title" v-for="(c,i) in config.example" :key="c" v-if="c.show && c.key == $route.params.type">{{c.name}}</div>
+    </transition>
+    <el-row>
+      <el-col :span="6" v-for="i in 4" :key="i">
+        <transition-group name="example-complete" tag="div">
+          <el-card v-if="k%4 == i-1" :body-style="{ padding: '0' }" v-for="(e,k) in data.list" :key="e" class="example-complete-item">
+            <div @click="go(e.url)">
+              <img :src="'http://localhost:8000'+e.pic" class="image">
+              <div class="bottom">
+                <div>{{e.topic}}</div>
+                <time class="time">{{ dateFilter(e.created) }}</time>
+              </div>
+            </div>
+          </el-card>
+        </transition-group>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -27,20 +35,22 @@
       return {
         config: {},
         data: {page: 1, pageSize: 10, list: [], all: 0},
+        titleCss: ['title'],
       }
-    },
-    computed: {
-      active () {
-        return this.config && this.config.example && this.config.example.find(({key}) => this.$route.params.type === key)
-      },
     },
     methods: {
       dateFilter,
       findList () {
         const {type, userid} = this.$route.params
         findExample(type, this.data, userid).then((data) => {
+          [0, 0, 0, 0].forEach(() => {
+            data.list = [...data.list, ...data.list]
+          })
           this.data = data
         })
+      },
+      go (url) {
+        window.open(url.indexOf('http') === -1 ? `http://${url}` : url)
       },
     },
     beforeRouteUpdate (to, from, next) {

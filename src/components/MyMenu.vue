@@ -2,7 +2,7 @@
   @import "myMenu.less";
 </style>
 <template>
-  <el-menu :default-active="activeIndex" class="my-menu" mode="horizontal" @select="handleSelect" router unique-opened>
+  <el-menu :default-active="active" class="my-menu" mode="horizontal" router unique-opened>
     <el-menu-item :index="'/view/home/'+$route.params.userid">首页</el-menu-item>
     <el-submenu index="example">
       <template slot="title">案例展示</template>
@@ -26,12 +26,12 @@
         config: {},
       }
     },
-    methods: {
-      handleSelect () {
+    computed: {
+      active () {
+        return this.$route.path
       },
     },
     created () {
-      this.activeIndex = `/view/home/${this.$route.params.userid}`
       getConfig(this.$route.params.userid).then(({value}) => {
         this.config = JSON.parse(value)
       })
