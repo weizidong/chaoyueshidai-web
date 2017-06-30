@@ -1,7 +1,7 @@
 import ajax from './ajax'
 const ROOT = '/rest/example/'
 // 获取列表
-export const findExample = (type, {page, pageSize}) => ajax.post(`${ROOT}find/${type}`, {page, pageSize})
+export const findExample = (type, {page, pageSize}, userid = -1) => ajax.post(`${ROOT}find/${type}/${userid}`, {page, pageSize})
 // 根据Id获取
 export const getExample = (id) => ajax.get(`${ROOT}get/${id}`)
 // 添加

@@ -14,7 +14,7 @@
         <el-input v-model="example.url"/>
       </el-form-item>
       <el-form-item label="案例配图：" prop="pic">
-        <Avatar />
+        <Avatar :success="(v)=>example.pic = v"/>
       </el-form-item>
       <el-form-item label="案例说明：" prop="legend">
         <el-input type="textarea" v-model="example.legend" :rows="10"/>

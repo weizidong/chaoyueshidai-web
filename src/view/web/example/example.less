@@ -1,2 +1,32 @@
-.example{
+.example {
+  .title {
+    transition: all .5s ease;
+    transform: rotate(720deg);
+    font-size: 28px;
+  }
+  .example-complete-box {
+    text-align: left;
+    .example-complete-item {
+      display: inline-block;
+      text-align: center;
+      width: 240px;
+      height: 305px;
+      margin: 15px;
+      .image {
+        width: 240px;
+        height: 240px;
+      }
+      .bottom {
+        padding: 10px;
+      }
+    }
+    .example-complete-enter-active {
+      transition: all 15s ease;
+      opacity: 1;
+    }
+    .example-complete-enter {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+  }
 }
