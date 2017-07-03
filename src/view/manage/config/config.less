@@ -4,15 +4,16 @@
     text-align: left;
     .delete, .add {
       cursor: pointer;
-      transition: all .5s ease;
+      transition: all .2s ease;
+      padding: 0 15px;
     }
-    .add:hover {
+    .add:hover, .delete:hover {
       color: #5367ff;
-      font-size: 1.5em;
+      transform: scale(1.5);
+      transform-origin: 50% 50%;
     }
     .delete:hover {
       color: #ff484b;
-      font-size: 1.5em;
     }
     & > .el-row:first-child {
       text-align: right;
@@ -33,6 +34,20 @@
         transform: translateY(-40px);
         position: absolute;
         width: 100%;
+      }
+      .list {
+        .list-complete-item:first-child {
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+        .list-complete-item:last-child {
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        .list-complete-item {
+          border: 1px solid #bfcbd9;
+          padding: 5px;
+        }
       }
     }
   }
