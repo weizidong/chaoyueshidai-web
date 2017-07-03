@@ -65,7 +65,7 @@
     <el-tab-pane label="关于我的介绍" name="3">
       <el-form ref="mineForm" class="form" :model="data">
         <el-row>
-          <i class="el-icon-plus add" @click="$set(data.mine,data.mine.length,{type:'',list:[]})"></i>
+          <i class="el-icon-plus add" @click="$set(data.mine,data.mine.length,{type:'',list:[],show:true})"></i>
           <el-button type="primary" @click="onSubmit">保存</el-button>
         </el-row>
         <transition-group name="list-complete" tag="p" class="list">
@@ -76,9 +76,10 @@
                   <template slot="append">：</template>
                 </el-input>
               </el-col>
-              <el-col :span="18" style="width: 80%">
+              <el-col :span="18" style="width: 80%;position: relative">
                 <div v-if="!mine.list.length" style="border: 1px solid #bfcbd9;padding: 5px;border-radius: 5px;">请添加内容！</div>
-                <transition-group name="list-complete" tag="p" class="list" style="margin: 0">
+                <div v-if="mine.list.length && !mine.show" style="border: 1px solid #bfcbd9;padding: 5px;border-radius: 5px;">内容已隐藏！</div>
+                <transition-group name="list-complete" v-if="mine.show" tag="p" class="list" style="margin: 0">
                   <el-row v-for="(list,i) in mine.list" :key="list" class="list-complete-item">
                     <el-form-item label="标题：" style="">
                       <el-input v-model="list.title"></el-input>
@@ -89,6 +90,7 @@
                     <i class="el-icon-delete2 delete" style="position: absolute;top: 15px;left: 50px" @click="$delete(mine.list,i)"></i>
                   </el-row>
                 </transition-group>
+                <i class="add" v-if="mine.list.length" :class="{'el-icon-caret-left':!mine.show,'el-icon-caret-bottom':mine.show}" style="position: absolute;top: 15px;right: 15px" @click="mine.show = !mine.show"></i>
               </el-col>
               <el-col :span="3" style="width: 10%">
                 <i class="el-icon-plus add" @click="$set(mine.list,mine.list.length,{title:'',content:''})"></i>
