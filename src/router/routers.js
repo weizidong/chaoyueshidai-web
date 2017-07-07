@@ -1,12 +1,7 @@
 import {ROOT} from '../constant'
 export default [
-  // 主页
-  {
-    path: `/:userid`,
-    redirect: `${ROOT}/home/:userid`,
-  },
   // 后台登录
-  {path: `${ROOT}/login`, component: resolve => require(['../view/manage/login/Login.vue'], resolve), name: 'login', meta: {title: '登录'}},
+  {path: `/login`, component: resolve => require(['../view/manage/login/Login.vue'], resolve), name: 'login', meta: {title: '登录'}},
   // 主页网站
   {
     path: `${ROOT}/:userid`,
