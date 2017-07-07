@@ -3,7 +3,7 @@
 </style>
 <template>
   <div class="footer">
-    <p><span>备案序号：<img src="/static/img/beian.png"> 蜀ICP备07006651号</span></p>
+    <p><span>备案号：<img src="/static/img/beian.png"> 渝ICP备17008266号</span></p>
     <p><span>Copyright @ 2003-2016 成都市龙泉驿区总工会 版权所有.</span></p>
   </div>
 </template>
