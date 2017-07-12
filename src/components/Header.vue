@@ -72,7 +72,7 @@
 </template>
 
 <script>
-  import {mine, logout} from '../api/userApi'
+  import {mineApi, logout} from '../api/userApi'
   import {alert} from '../actions'
   export default {
     name: 'myHeader',
@@ -140,7 +140,7 @@
       },
     },
     created () {
-      mine().then((data) => {
+      mineApi().then((data) => {
         this.mine = data
       })
     },

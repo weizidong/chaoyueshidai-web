@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import {error} from '../actions'
 // 全局默认设置 Global axios defaults
 Axios.defaults.headers.post['Content-Type'] = 'application/json'
 // 添加一个请求拦截器
@@ -18,16 +19,19 @@ Axios.interceptors.request.use((config) => {
 Axios.interceptors.response.use((response) => {
   if (response.status !== 200) {
     console.log(response)
-    return {code: response.status, msg: '网络异常，请稍后重试...'}
+    const msg = '网络异常，请稍后重试...'
+    error(msg)
+    return Promise.reject({code: response.status, msg})
   }
-  console.log(response.data)
   const {code, msg, data} = response.data
   if (!code) {
     return response.data
   } else if (code === 200) {
     return data
   } else if (code !== 200) {
-    return {code: code || 500, msg: msg || '服务器异常！请稍后重试...'}
+    const data = {code: code || 500, msg: msg || '服务器异常！请稍后重试...'}
+    error(data.msg)
+    return Promise.reject(data)
   }
 }, (error) => {
   console.log(error)
