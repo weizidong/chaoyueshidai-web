@@ -12,7 +12,7 @@
         <transition-group name="example-complete" tag="div">
           <el-card v-if="k%4 == i-1" :body-style="{ padding: '0' }" v-for="(e,k) in data.list" :key="e" class="example-complete-item">
             <div @click="go(e.url)">
-              <img :src="'http://localhost:8000'+e.pic" class="image">
+              <img :src="e.pic" class="image">
               <div class="bottom">
                 <div>{{e.topic}}</div>
                 <time class="time">{{ dateFilter(e.created) }}</time>

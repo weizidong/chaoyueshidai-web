@@ -12,12 +12,12 @@
         <transition-group name="noe-complete" tag="div">
           <el-card v-if="k%4 == i-1" :body-style="{ padding: '0' }" v-for="(e,k) in data.list" :key="e" class="noe-complete-item">
             <div @click="$router.push({name: 'noteInfo', params: {id:e.id}})" class="title">
-              <img :src="'http://localhost:8000'+e.pic">
+              <img :src="e.pic">
               <div>{{e.title}}</div>
             </div>
             <div class="bottom">
               <time class="time">{{ dateFilter(e.created) }}</time>
-              <div>作者：<span @click="$router.push({name: 'noteUser', params: {id:e.userid}})"><img :src="'http://localhost:8000'+e.avatarUrl">{{e.userName}}</span></div>
+              <div>作者：<span @click="$router.push({name: 'noteUser', params: {id:e.userid}})"><img :src="e.avatarUrl">{{e.userName}}</span></div>
             </div>
           </el-card>
         </transition-group>
