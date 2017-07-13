@@ -42,21 +42,14 @@
     methods: {
       dateFilter,
       findList () {
-        const {type} = this.$route.params
-        findNoteApi(type, this.data, 0).then((data) => {
+        const {id} = this.$route.params
+        findNoteApi(0, this.data, id).then((data) => {
           [0, 0, 0, 0].forEach(() => {
             data.list = [...data.list, ...data.list]
           })
           this.data = data
         })
       },
-    },
-    beforeRouteUpdate (to, from, next) {
-      next()
-      this.data = {page: 1, pageSize: 20, list: [], all: 0}
-      if (!to.query.page) {
-        this.findList()
-      }
     },
     created () {
       this.findList()

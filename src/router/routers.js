@@ -9,9 +9,10 @@ export default [
     children: [
       {path: ``, component: resolve => require(['../view/web/home/Home.vue'], resolve), name: 'home', meta: {title: '首页'}},
       {path: `${ROOT}/example/:type`, component: resolve => require(['../view/web/example/Example.vue'], resolve), name: 'example', meta: {title: '项目案例'}},
-      {path: `${ROOT}/example/user/:id`, component: resolve => require(['../view/web/example/Example.vue'], resolve), name: 'example', meta: {title: '项目案例'}},
+      {path: `${ROOT}/example/user/:id`, component: resolve => require(['../view/web/example/Example.vue'], resolve), name: 'exampleUser', meta: {title: '项目案例'}},
       {path: `${ROOT}/note/:type`, component: resolve => require(['../view/web/note/Note.vue'], resolve), name: 'note', meta: {title: '日志笔记'}},
-      {path: `${ROOT}/note/user/:id`, component: resolve => require(['../view/web/note/Note.vue'], resolve), name: 'note', meta: {title: '日志笔记'}},
+      {path: `${ROOT}/note/info/:id`, component: resolve => require(['../view/web/note/NoteInfo.vue'], resolve), name: 'noteInfo', meta: {title: '日志笔记'}},
+      {path: `${ROOT}/note/user/:id`, component: resolve => require(['../view/web/note/NoteUser.vue'], resolve), name: 'noteUser', meta: {title: '日志笔记'}},
       // {path: `${ROOT}/me/:userid`, component: resolve => require(['../view/web/me/Me.vue'], resolve), name: 'me', meta: {title: '关于我'}},
     ],
   },
