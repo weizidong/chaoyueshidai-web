@@ -1,2 +1,45 @@
-.home{
+.home {
+  width: 400px;
+  margin: auto;
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 320px;
+    }
+  }
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
+  @keyframes typingMid {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  div {
+    display: inline-block;
+    width: 399px;
+    line-height: 18px;
+    margin: 0 0 0.3125rem 0;
+    overflow: hidden;
+    flex: 1;
+    opacity: 0.7;
+    white-space: nowrap;
+    border-right: 1px solid;
+    animation: typing 3s steps(26, end), blink-caret 1s step-end 3s;
+  }
+  div:nth-child(3) {
+    animation: typingMid 3s steps(23, end), blink-caret 1s step-end 3s;
+    animation-delay: 3s;
+    animation-fill-mode: backwards;
+  }
 }

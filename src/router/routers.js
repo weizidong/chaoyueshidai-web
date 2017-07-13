@@ -4,13 +4,15 @@ export default [
   {path: `/login`, component: resolve => require(['../view/manage/login/Login.vue'], resolve), name: 'login', meta: {title: '登录'}},
   // 主页网站
   {
-    path: `${ROOT}/:userid`,
+    path: `/`,
     component: resolve => require(['../view/web/Web.vue'], resolve),
     children: [
-      {path: `${ROOT}/home/:userid`, component: resolve => require(['../view/web/home/Home.vue'], resolve), name: 'home', meta: {title: '首页'}},
-      {path: `${ROOT}/example/:userid/:type`, component: resolve => require(['../view/web/example/Example.vue'], resolve), name: 'example', meta: {title: '项目案例'}},
-      {path: `${ROOT}/note/:userid/:type`, component: resolve => require(['../view/web/note/Note.vue'], resolve), name: 'note', meta: {title: '日子笔记'}},
-      {path: `${ROOT}/me/:userid`, component: resolve => require(['../view/web/me/Me.vue'], resolve), name: 'me', meta: {title: '关于我'}},
+      {path: ``, component: resolve => require(['../view/web/home/Home.vue'], resolve), name: 'home', meta: {title: '首页'}},
+      {path: `${ROOT}/example/:type`, component: resolve => require(['../view/web/example/Example.vue'], resolve), name: 'example', meta: {title: '项目案例'}},
+      {path: `${ROOT}/example/user/:id`, component: resolve => require(['../view/web/example/Example.vue'], resolve), name: 'example', meta: {title: '项目案例'}},
+      {path: `${ROOT}/note/:type`, component: resolve => require(['../view/web/note/Note.vue'], resolve), name: 'note', meta: {title: '日志笔记'}},
+      {path: `${ROOT}/note/user/:id`, component: resolve => require(['../view/web/note/Note.vue'], resolve), name: 'note', meta: {title: '日志笔记'}},
+      // {path: `${ROOT}/me/:userid`, component: resolve => require(['../view/web/me/Me.vue'], resolve), name: 'me', meta: {title: '关于我'}},
     ],
   },
   // 管理后台
