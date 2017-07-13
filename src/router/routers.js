@@ -20,10 +20,10 @@ export default [
     children: [
       {path: `${ROOT}/manage/home`, component: resolve => require(['../view/manage/home/Home.vue'], resolve), name: 'manage', meta: {title: '后台管理'}},
       {path: `${ROOT}/manage/config`, component: resolve => require(['../view/manage/config/ConfigEdit.vue'], resolve), name: 'configEdit', meta: {title: '设置'}},
-      {path: `${ROOT}/manage/example/:type`, component: resolve => require(['../view/manage/example/ExampleList.vue'], resolve), name: 'exampleList', meta: {title: '项目案例'}},
-      {path: `${ROOT}/manage/example/:type/:id`, component: resolve => require(['../view/manage/example/ExampleEdit.vue'], resolve), name: 'exampleEdit', meta: {title: '修改项目案例'}},
-      {path: `${ROOT}/manage/note/:type`, component: resolve => require(['../view/manage/note/NoteList.vue'], resolve), name: 'noteList', meta: {title: '日志笔记'}},
-      {path: `${ROOT}/manage/note/:type/:id`, component: resolve => require(['../view/manage/note/NoteEdit.vue'], resolve), name: 'noteEdit', meta: {title: '修改日志笔记'}},
+      {path: `${ROOT}/manage/example`, component: resolve => require(['../view/manage/example/ExampleList.vue'], resolve), name: 'exampleList', meta: {title: '项目案例'}},
+      {path: `${ROOT}/manage/example/:id`, component: resolve => require(['../view/manage/example/ExampleEdit.vue'], resolve), name: 'exampleEdit', meta: {title: '修改项目案例'}},
+      {path: `${ROOT}/manage/note`, component: resolve => require(['../view/manage/note/NoteList.vue'], resolve), name: 'noteList', meta: {title: '日志笔记'}},
+      {path: `${ROOT}/manage/note/:id`, component: resolve => require(['../view/manage/note/NoteEdit.vue'], resolve), name: 'noteEdit', meta: {title: '修改日志笔记'}},
     ],
   },
 ]

@@ -34,16 +34,23 @@
       .el-breadcrumb {
         padding-bottom: 15px;
       }
-      & > .el-button {
+      & > .el-button, & > .el-select {
         position: absolute;
         right: 0;
         top: -10px;
       }
+      & > .el-select {
+        right: 95px;
+        width: 105px;
+      }
       .el-form-item__content {
         text-align: left;
       }
-      .el-table th {
-        text-align: center;
+      .el-table {
+        margin-top: 5px;
+        th {
+          text-align: center;
+        }
       }
       .el-pagination {
         padding: 15px;
