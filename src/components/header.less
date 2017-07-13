@@ -8,6 +8,20 @@
   font-size: 22px;
   box-shadow: 0 1px 5px #333333;
   z-index: 2;
+  .logo {
+    height: 60px;
+    width: 100px;
+    float: left;
+    img {
+      height: 80%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #FFF;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #ff4949;
+    }
+  }
   .user {
     position: absolute;
     color: #BFCBD9;
@@ -44,7 +58,7 @@
   .change {
     color: #fff;
     background-color: #50bfff;
-    border:solid 1px #50bfff;
+    border: solid 1px #50bfff;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     &:hover, &:focus {

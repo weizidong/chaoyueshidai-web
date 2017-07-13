@@ -57,7 +57,6 @@
           if (valid) {
             loginApi(this.data).then((user) => {
               success('登录成功！')
-              window.localStorage.setItem('user', JSON.stringify(user))
               this.$router.push({name: 'manage'})
             })
           } else {

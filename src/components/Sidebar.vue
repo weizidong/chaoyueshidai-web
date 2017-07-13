@@ -10,14 +10,13 @@
   </div>
 </template>
 <script type="es6">
-  import menu from '../router/menu'
+  import menus from '../router/menu'
   import SidebarItem from './SidebarItem.vue'
-  import {getConfig} from '../api/configApi'
   export default {
     components: {SidebarItem},
     data(){
       return {
-        menus: [],
+        menus,
         hide: false,
         config: {}
       }
@@ -28,15 +27,6 @@
       },
     },
     created () {
-      getConfig().then(({value}) => {
-        this.config = value && JSON.parse(value)
-        menu.forEach((m) => {
-          if (m.type) {
-            m.children = this.config[m.type].map(({name, icon, key}) => ({title: name, icon, path: `/view/manage/${m.type}/${key}`}))
-          }
-          this.menus.push(m)
-        })
-      })
     }
   }
 </script>

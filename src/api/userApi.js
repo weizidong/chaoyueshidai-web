@@ -8,4 +8,6 @@ export const registApi = ({nickName = '', tel = '', pwd = ''} = {}) => ajax.post
 // 获取当前登录
 export const mineApi = () => ajax.get(`${ROOT}mine`)
 // 登出
-export const logout = () => ajax.get(`${ROOT}logout`)
+export const logoutApi = () => ajax.get(`${ROOT}logout`)
+// 登出
+export const changePwdApi = (old = '', pwd = '') => ajax.post(`${ROOT}changePwd?old=${md5(old)}&pwd=${md5(pwd)}`)

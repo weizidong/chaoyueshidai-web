@@ -21,7 +21,6 @@
 </template>
 
 <script>
-  import {getConfig} from '../../../api/configApi'
   import {findExample, delExample} from '../../../api/exampleApi'
   import {dateFilter} from '../../../constant/filter'
   import {success, error, confirm} from '../../../actions'
@@ -62,9 +61,6 @@
       }
     },
     created () {
-      getConfig().then(({value}) => {
-        this.config = value && JSON.parse(value)
-      })
     },
   }
 </script>

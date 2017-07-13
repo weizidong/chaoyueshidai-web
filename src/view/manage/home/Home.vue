@@ -4,7 +4,9 @@
 
 <template>
   <div class="home">
-    欢迎首页开发中。。。
+    <img src="/static/img/logo01.png">
+    <div>欢迎使用本系统！</div>
+    <div>其他功能还在陆续开发中，敬请期待。。。</div>
   </div>
 </template>
 

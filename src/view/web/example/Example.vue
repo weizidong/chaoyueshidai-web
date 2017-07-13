@@ -27,7 +27,6 @@
 
 <script>
   import {findExample} from '../../../api/exampleApi'
-  import {getConfig} from '../../../api/configApi'
   import {dateFilter} from '../../../constant/filter'
   export default {
     name: 'example',
@@ -61,9 +60,6 @@
       }
     },
     created () {
-      getConfig().then(({value}) => {
-        this.config = value && JSON.parse(value)
-      })
       this.findList()
     },
   }

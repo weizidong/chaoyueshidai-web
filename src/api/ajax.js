@@ -23,11 +23,12 @@ Axios.interceptors.response.use((response) => {
     error(msg)
     return Promise.reject({code: response.status, msg})
   }
+  console.log('请求结果：', response.data)
   const {code, msg, data} = response.data
   if (!code) {
     return response.data
   } else if (code === 200) {
-    return data
+    return data || response.data
   } else if (code !== 200) {
     const data = {code: code || 500, msg: msg || '服务器异常！请稍后重试...'}
     error(data.msg)

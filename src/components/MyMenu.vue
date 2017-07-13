@@ -17,7 +17,6 @@
 </template>
 
 <script>
-  import {getConfig} from '../api/configApi'
   export default {
     name: 'my-menu',
     data () {
@@ -32,9 +31,6 @@
       },
     },
     created () {
-      getConfig(this.$route.params.userid).then(({value}) => {
-        this.config = JSON.parse(value)
-      })
     },
   }
 </script>
