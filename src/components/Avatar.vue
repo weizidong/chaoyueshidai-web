@@ -28,7 +28,7 @@
       :http-request="upload"
       :before-upload="beforeUpload"
       :on-success="successFun">
-      <img v-if="pic" :src="pic" class="avatar" :style="{width:width+'px',height:height+'px'}">
+      <img v-if="pic" :src="'http://localhost:8000'+pic" class="avatar" :style="{width:width+'px',height:height+'px'}">
       <i v-else class="el-icon-plus" :style="{width:width+'px',height:height+'px',lineHeight:height+'px'}"/>
     </el-upload>
   </div>

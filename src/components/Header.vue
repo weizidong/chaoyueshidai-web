@@ -6,7 +6,7 @@
     <div class="logo"><img src="/static/img/logo01.png" alt="LOGO"></div>
     <el-dropdown class="user" @command="handleCommand">
       <span class="el-dropdown-link">
-        <img :src="mine.avatarUrl || '/static/img/user.png'">
+        <img :src="'http://localhost:8000'+mine.avatarUrl || '/static/img/user.png'">
         <span>{{mine.name || mine.nickName || '管理员'}}</span>
         <i class="el-icon-caret-bottom el-icon--right"></i>
       </span>
@@ -142,7 +142,7 @@
         })
       },
       changeTel () {
-        alert('更换手机开发中。。。')
+        alert('更换手机正在开发中。。。')
       },
     },
     created () {

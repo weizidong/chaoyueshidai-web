@@ -5,6 +5,7 @@
       <el-breadcrumb-item>{{noteType[active]}}</el-breadcrumb-item>
     </el-breadcrumb>
     <el-select v-model="active" placeholder="请选择" @input="findList">
+      <el-option label="全部笔记" value="0"/>
       <el-option v-for="(v,k) in noteType" :key="k" :label="v" :value="k"/>
     </el-select>
     <el-button type="info" icon="plus" @click="$router.push({name: 'noteEdit', params: {id: 'create'}})">新增</el-button>
@@ -12,6 +13,7 @@
       <el-table-column prop="title" label="标题" min-width="180"/>
       <el-table-column prop="type" label="类型" :formatter="({type})=>noteType[type]||'无'" min-width="180"/>
       <el-table-column prop="created" :formatter="({created})=>dateFilter(created)" label="创建时间" min-width="180"/>
+      <el-table-column prop="share" :formatter="({share})=>['否','是'][share]" label="公开" min-width="80"/>
       <el-table-column label="操作" width="100">
         <template scope="scope">
           <el-button type="text" size="small" @click="$router.push({name: 'noteEdit', params: {id:scope.row.id}})">编辑</el-button>

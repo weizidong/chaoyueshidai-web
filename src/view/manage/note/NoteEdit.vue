@@ -7,14 +7,19 @@
     </el-breadcrumb>
     <el-button type="text" icon="d-arrow-left" @click="$router.push({name:'noteList'})"></el-button>
     <el-form :model="note" :rules="rules" ref="note" label-width="100px">
-      <el-form-item label="封面配图：" prop="pic">
-        <Avatar :success="(v)=>note.pic = v"/>
+      <el-form-item label="封面：" prop="pic">
+        <Avatar :url="note.pic" :success="(v)=>note.pic = v"/>
       </el-form-item>
       <el-form-item label="标题：" prop="title">
         <el-input v-model="note.title"/>
       </el-form-item>
       <el-form-item label="类型：" prop="type">
-        <el-input v-model="note.type"/>
+        <el-select v-model="note.type" placeholder="请选择类型...">
+          <el-option v-for="(v,k) in noteType" :key="k" :label="v" :value="k"/>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="公开：" prop="share">
+        <el-switch v-model="note.share" on-color="#13ce66" off-color="#ff4949" :on-value="1" on-text="是" :off-value="0" off-text="否"/>
       </el-form-item>
       <el-form-item label="内容：" prop="content">
         <el-input type="textarea" v-model="note.content" :rows="10"/>
@@ -28,11 +33,13 @@
   import {getNoteApi, addNoteApi, updateNoteApi} from '../../../api/noteApi'
   import {success, error} from '../../../actions'
   import Avatar from '../../../components/Avatar.vue'
+  import {noteType} from '../../../constant'
   export default {
     name: 'noteEdit',
     data () {
       return {
-        note: {title: '', type: '', pic: '', content: ''},
+        noteType,
+        note: {title: '', type: '', pic: '', content: '', share: 0},
         rules: {},
       }
     },
