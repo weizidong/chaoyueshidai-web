@@ -5,9 +5,9 @@ Axios.defaults.headers.post['Content-Type'] = 'application/json'
 // 添加一个请求拦截器
 Axios.interceptors.request.use((config) => {
   console.info('发送请求：', config.url, '\n参数:', config.data)
-  if (process.env.NODE_ENV === 'development' || location.search.split(/[?&]/).indexOf('debug=WeiZiDong') !== -1) {
-    config.url += config.url.indexOf('?') !== -1 ? '&debug=WeiZiDong' : '?debug=WeiZiDong'
-  }
+  // if (process.env.NODE_ENV === 'development' || location.search.split(/[?&]/).indexOf('debug=WeiZiDong') !== -1) {
+  //   config.url += config.url.indexOf('?') !== -1 ? '&debug=WeiZiDong' : '?debug=WeiZiDong'
+  // }
   return config
 }, (error) => {
   console.log(error)

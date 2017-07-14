@@ -5,7 +5,7 @@
 <template>
   <transition name="fade" mode="out-in">
     <el-card v-if="!show" class="login" key="login">
-      <div class="title">管理后台--登录</div>
+      <div class="title">登录</div>
       <el-form :model="data" :rules="rules1" ref="ruleForm1" label-width="100px">
         <el-form-item label="电话号码：" prop="tel">
           <el-input v-model="data.tel"></el-input>
@@ -14,7 +14,7 @@
           <el-input type="password" v-model="data.pwd"></el-input>
         </el-form-item>
         <el-button type="primary" @click="submit">登录</el-button>
-        <el-button class="register" type="text" size="small" @click="show = true">没有账号怎么办？ 注册</el-button>
+        <el-button class="register" type="text" size="small" @click="show = true">没有账号怎么办？ 去注册！</el-button>
       </el-form>
     </el-card>
     <el-card v-if="show" class="login" key="register">
@@ -27,6 +27,7 @@
           <el-input type="password" v-model="data.pwd"></el-input>
         </el-form-item>
         <el-button type="primary" @click="submit">注册</el-button>
+        <el-button class="register" type="text" size="small" @click="show = false">已经有账号了！ 去登录！</el-button>
       </el-form>
     </el-card>
   </transition>

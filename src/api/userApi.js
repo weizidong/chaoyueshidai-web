@@ -7,12 +7,12 @@ export const loginApi = ({tel = '', pwd = ''} = {}) => ajax.post(`${ROOT}login`,
 // 注册
 export const registApi = ({nickName = '', tel = '', pwd = ''} = {}) => ajax.post(`${ROOT}register`, {nickName, tel, pwd: md5(pwd)})
 // 获取当前登录
-export const mineApi = () => new Promise((resolve) => {
+export const mineApi = () => new Promise((resolve, reject) => {
   if (!mine) {
     ajax.get(`${ROOT}mine`).then((user) => {
       mine = user
       resolve(mine)
-    })
+    }).catch((e) => reject(e))
   } else {
     resolve(mine)
   }
