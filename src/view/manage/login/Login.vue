@@ -50,6 +50,7 @@
           pwd: [{required: true, message: '请输入密码...', trigger: 'blur'}, {min: 6, message: '密码长度最少为6位...', trigger: 'blur'}],
         },
         rules2: {
+          nickName: [{required: true, message: '请输入昵称...', trigger: 'blur'}],
           tel: [{required: true, message: '请输入电话号码...', trigger: 'blur'}, {pattern: /^\d{11}$/, message: '电话号码为11位数字...', trigger: 'blur'}],
           pwd: [{required: true, message: '请输入密码...', trigger: 'blur'}, {min: 6, message: '密码长度最少为6位...', trigger: 'blur'}],
         },
