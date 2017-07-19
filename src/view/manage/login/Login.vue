@@ -20,13 +20,16 @@
     <el-card v-if="show" class="login" key="register">
       <div class="title">注册</div>
       <el-form :model="data" :rules="rules2" ref="ruleForm2" label-width="100px">
+        <el-form-item label="昵称：" prop="nickName">
+          <el-input v-model="data.nickName"></el-input>
+        </el-form-item>
         <el-form-item label="电话号码：" prop="tel">
           <el-input v-model="data.tel"></el-input>
         </el-form-item>
         <el-form-item label="密码：" prop="pwd">
           <el-input type="password" v-model="data.pwd"></el-input>
         </el-form-item>
-        <el-button type="primary" @click="submit">注册</el-button>
+        <el-button type="primary" @click="register">注册</el-button>
         <el-button class="register" type="text" size="small" @click="show = false">已经有账号了！ 去登录！</el-button>
       </el-form>
     </el-card>
