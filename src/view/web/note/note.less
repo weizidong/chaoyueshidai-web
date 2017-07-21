@@ -24,6 +24,8 @@
       cursor: pointer;
       img {
         padding: 10px;
+        min-width: 200px;
+        min-height: 200px;
         &:hover {
           transition: all .6s ease;
           transform: scale(1.1);
@@ -61,11 +63,11 @@
       }
     }
   }
-  .noe-complete-enter-active, .noe-complete-leave {
+  .noe-complete-enter-active {
     transition: all 2s ease;
     opacity: 1;
   }
-  .noe-complete-enter, .noe-complete-leave-active {
+  .noe-complete-enter {
     opacity: 0;
     transform: translateY(50%);
   }
