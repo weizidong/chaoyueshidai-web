@@ -65,7 +65,7 @@
     <el-tab-pane label="我的资料" name="me">
       <el-form ref="mineForm" class="form" :model="data" label-width="100px" style="width: 80%;margin: auto">
         <div class="el-form-item" style="text-align: center">
-          <Avatar :url="data.avatarUrl" :success="(v)=>data.avatarUrl = v"/>
+          <Avatar :url="data.avatarUrl.indexOf('/userfiles/')>0?data.avatarUrl: '/static/img/admin.png'" :success="(v)=>data.avatarUrl = v"/>
         </div>
         <el-form-item label="昵称：" prop="nickName">
           <el-input v-model="data.nickName"/>
@@ -102,7 +102,7 @@
     data () {
       return {
         activeName: '',
-        data: {},
+        data: {avatarUrl: ''},
       }
     },
     components: {Avatar},

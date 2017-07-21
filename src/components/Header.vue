@@ -18,7 +18,7 @@
     </el-dropdown>
     <el-dialog v-if="dialog.data.id" :modal-append-to-body="false" :show-close="false" :visible.sync="dialog.show">
       <div slot="title" class="title">
-        <img :src="dialog.data.avatarUrl || '/static/img/admin.png'">
+        <img :src="dialog.data.avatarUrl.indexOf('/userfiles/')>0?dialog.data.avatarUrl: '/static/img/admin.png'">
         <i class="el-icon-close" @click="dialog.show = false"/>
       </div>
       <el-form :model="dialog.data" label-width="160px">

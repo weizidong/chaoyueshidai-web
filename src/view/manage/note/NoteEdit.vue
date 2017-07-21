@@ -8,7 +8,7 @@
     <el-button type="text" icon="d-arrow-left" @click="$router.push({name:'noteList'})"></el-button>
     <el-form :model="note" :rules="rules" ref="note" label-width="100px">
       <el-form-item label="封面：" prop="pic">
-        <Avatar :url="note.pic" :success="(v)=>note.pic = v"/>
+        <Avatar :url="note.pic.indexOf('/userfiles/')>0?note.pic: '/static/img/none.png'" :success="(v)=>note.pic = v"/>
       </el-form-item>
       <el-form-item label="标题：" prop="title">
         <el-input v-model="note.title"/>

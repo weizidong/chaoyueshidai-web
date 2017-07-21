@@ -5,7 +5,7 @@
 <template>
   <div class="noteInfo">
     <div class="title">
-      <img :src="note.pic">
+      <img :src="note.pic.indexOf('/userfiles/')>0?note.pic: '/static/img/none.png'">
       <div>
         <div>标题：<span>{{note.title}}</span></div>
         <div>发布时间：<span>{{dateFilter(note.created)}}</span></div>
