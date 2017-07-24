@@ -10,7 +10,7 @@
     <transition-group name="noe-complete" tag="div" mode="out-in" style="text-align: left">
       <el-card :body-style="{ padding: '0' }" v-for="(e,k) in data.list" :key="e" class="noe-complete-item">
         <div @click="$router.push({name: 'noteInfo', params: {id:e.id}})" class="title">
-          <img :src="e.pic.indexOf('/userfiles/')>0?e.pic: '/static/img/none.png'">
+          <img :src="e.pic?e.pic: '/static/img/none.png'">
           <div>{{e.title}}</div>
         </div>
         <div class="bottom">
