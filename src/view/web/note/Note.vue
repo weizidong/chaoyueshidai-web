@@ -18,8 +18,8 @@
           <div>作者：<span @click="$router.push({name: 'noteUser', params: {id:e.userid}})"><img :src="e.avatarUrl">{{e.userName}}</span></div>
         </div>
       </el-card>
+      <NoData key="nodata" v-if="data.list && data.list.length==0"></NoData>
     </transition-group>
-    <NoData :show="data.list.length==0"></NoData>
   </div>
 </template>
 
@@ -34,7 +34,7 @@
     data () {
       return {
         noteType,
-        data: {page: 1, pageSize: 20, list: [], all: 0},
+        data: {page: 1, pageSize: 20, all: 0},
         titleCss: ['title'],
       }
     },

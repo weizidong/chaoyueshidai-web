@@ -1,10 +1,12 @@
 <style lang="less" scoped>
   .noData {
+    text-align:center;
+    img{width:256px;height:256px;}
     div{font-size:24px;}
   }
 </style>
 <template>
-  <div class="noData" v-if="show">
+  <div class="noData">
     <img src="/static/img/nodata.png">
     <div>暂无数据！</div>
   </div>
@@ -13,11 +15,5 @@
 <script>
   export default {
     name: 'NoData',
-    props: {
-      show: {
-        type: Boolean,
-        default: false,
-      },
-    },
   }
 </script>
