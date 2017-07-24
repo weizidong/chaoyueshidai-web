@@ -23,3 +23,5 @@ export const logoutApi = () => ajax.get(`${ROOT}logout`)
 export const changePwdApi = (old = '', pwd = '') => ajax.post(`${ROOT}changePwd?old=${md5(old)}&pwd=${md5(pwd)}`)
 // 修改密码
 export const updateUserApi = (data) => ajax.post(`${ROOT}update`, data)
+// 获取用户信息
+export const getUserApi = (id) => ajax.get(`${ROOT}get/${id}`)
